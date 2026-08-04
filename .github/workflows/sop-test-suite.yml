@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
       - name: Build gosop from branch
         uses: ./.github/actions/build-gosop
         with: 
           binary-location: ./gosop-${{ github.sha }}
       # Upload as artifact
       - name: Upload gosop artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: gosop-${{ github.sha }}
           path: ./gosop-${{ github.sha }}
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
       - name: Build gosop from branch
         uses: ./.github/actions/build-gosop
         with: 
@@ -36,7 +36,7 @@ jobs:
           binary-location: ./gosop-main
       # Upload as artifact
       - name: Upload gosop-main artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: gosop-main
           path: ./gosop-main
@@ -55,10 +55,10 @@ jobs:
       - build-gosop-main
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
       # Fetch gosop from main
       - name: Download gosop-main
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         with:
           name: gosop-main
       # Test gosop-main
@@ -68,7 +68,7 @@ jobs:
         run: ./gosop-main version --extended
       # Fetch gosop from branch
       - name: Download gosop-branch
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         with:
           name: gosop-${{ github.sha }}
       - name: Rename gosop-branch
@@ -94,12 +94,12 @@ jobs:
          RESULTS_HTML: .github/test-suite/test-suite-results.html
       # Upload results
       - name: Upload test results json artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: test-suite-results.json
           path: .github/test-suite/test-suite-results.json
       - name: Upload test results html artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3
         with:
           name: test-suite-results.html
           path: .github/test-suite/test-suite-results.html
@@ -110,10 +110,10 @@ jobs:
     needs: test-suite
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
       - name: Download test results json artifact
         id: download-test-results
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3
         with:
           name: test-suite-results.json
       - name: Compare with baseline

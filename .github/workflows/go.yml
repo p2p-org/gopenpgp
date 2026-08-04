@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
 
       - name: Set up latest golang
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@be3c94b385c4f180051c996d336f57a34c397495 # v3
         with:
           go-version: ^1.18
 
@@ -27,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
 
     - name: Set up Go 1.17
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@be3c94b385c4f180051c996d336f57a34c397495 # v3
       with:
         go-version: 1.17
 
@@ -41,11 +41,11 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@be3c94b385c4f180051c996d336f57a34c397495 # v3
         with:
           go-version: 1.17
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
       - name: golangci-lint
-        uses: golangci/golangci-lint-action@v3
+        uses: golangci/golangci-lint-action@3a919529898de77ec3da873e3063ca4b10e7f5cc # v3
         with:
           version: v1.50.1
